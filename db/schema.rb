@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 20171024183246) do
     t.string "name"
     t.text "review"
     t.integer "rating"
+    t.bigint "book_id"
+    t.index ["book_id"], name: "index_users_on_book_id"
   end
 
+  add_foreign_key "users", "books"
 end

@@ -12,11 +12,12 @@ describe "User Visits a book show page " do
 
   it "and a list of reviews for that book" do
     book = Book.create(title: "Foo")
-    user = User.create(name: "BarBaz", review: "qwertyuasdfgh")
+    user1 = book.users.create(name: "Bar", review: "Awesome", rating: 5)
+    user2 = book.users.create(name: "Baz", review: "Terrible", rating: 1)
 
     visit book_path(book)
 
-    expect(page).to have_content("Barbaz")
+    expect(page).to have_content(user.name)
   end
   
 end

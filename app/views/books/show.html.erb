@@ -1,3 +1,6 @@
 <h1><%= @book.title %></h1>
 
-<h2><%= @user.name %></h2>
+<% @books.users.each do |book|%>
+<h2><%= @book.user.name %></h2>
+
+<%end%>
